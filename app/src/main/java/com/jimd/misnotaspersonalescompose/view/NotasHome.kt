@@ -39,7 +39,6 @@ import com.jimd.misnotaspersonalescompose.navegation.NavegationManager
 
 @SuppressLint("StateFlowValueCalledInComposition")
 @OptIn(ExperimentalMaterial3Api::class)
-//@Preview(showSystemUi = true)
 @Composable
 fun NotasHome(navController: NavController,viewModel: NotasHomeViewModel) {
     Scaffold(
@@ -57,7 +56,6 @@ fun NotasHome(navController: NavController,viewModel: NotasHomeViewModel) {
         LaunchedEffect(key1 = Unit){
             viewModel.getAllNotasFull()
         }
-        //val allMyNotas by viewModel.allNotas.collectAsState(initial = emptyList())
         val allMyNotas = viewModel.notasInUpdateUI.listaNotas
         Box(modifier= Modifier
             .fillMaxSize()
@@ -91,8 +89,6 @@ fun Items(lista: NotasEntity, navController: NavController, viewModel: NotasHome
                     fontSize = 18.sp, fontWeight = FontWeight.Light,
                     maxLines = 2)
             }
-
-
             IconButton(onClick = {
                 val aBorrar = NotasEntity(lista.id,lista.titulo,lista.nota)
                 viewModel.deleteNota(aBorrar)

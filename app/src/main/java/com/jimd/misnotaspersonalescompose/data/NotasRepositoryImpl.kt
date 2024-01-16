@@ -3,8 +3,6 @@ package com.jimd.misnotaspersonalescompose.data
 import com.jimd.misnotaspersonalescompose.data.domain.NotasRepository
 import com.jimd.misnotaspersonalescompose.data.local.NotasDao
 import com.jimd.misnotaspersonalescompose.data.local.NotasEntity
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class NotasRepositoryImpl @Inject constructor(
@@ -15,7 +13,6 @@ class NotasRepositoryImpl @Inject constructor(
     }
 
     override fun getAllNotas()=dao.getAllNotas()
-      //dao.getAllNotas()
 
 
     override suspend fun getNotasForId(id: Int): NotasEntity {

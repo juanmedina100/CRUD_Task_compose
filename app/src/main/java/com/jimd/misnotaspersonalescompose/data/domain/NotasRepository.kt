@@ -1,8 +1,5 @@
 package com.jimd.misnotaspersonalescompose.data.domain
 
-import androidx.room.Delete
-import androidx.room.Query
-import androidx.room.Update
 import com.jimd.misnotaspersonalescompose.data.local.NotasEntity
 import kotlinx.coroutines.flow.Flow
 

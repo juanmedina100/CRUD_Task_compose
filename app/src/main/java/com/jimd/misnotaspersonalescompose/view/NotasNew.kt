@@ -28,7 +28,6 @@ import androidx.navigation.NavController
 import com.jimd.misnotaspersonalescompose.Utils.MyTopAppBarAdd
 import com.jimd.misnotaspersonalescompose.data.local.NotasEntity
 
-//@Preview(showSystemUi = true)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

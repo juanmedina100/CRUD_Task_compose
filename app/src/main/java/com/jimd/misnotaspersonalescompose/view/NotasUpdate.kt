@@ -34,12 +34,6 @@ import com.jimd.misnotaspersonalescompose.data.local.NotasEntity
 @Composable
 fun NotasUpdate(navegationControler: NavHostController, viewModel: NotasHomeViewModel,id:String,navegationBack:()->Unit) {
     val uriId = Uri.decode(id)
-    var titulo by rememberSaveable {
-        mutableStateOf("")
-    }
-    var nota by rememberSaveable {
-        mutableStateOf("")
-    }
     LaunchedEffect(key1 = Unit){
         viewModel.getNotasForId(uriId.toString().toInt())
         viewModel.onEventUpdate(NotasEvents.idViene(uriId.toInt()))
