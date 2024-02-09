@@ -1,8 +1,10 @@
 package com.jimd.misnotaspersonalescompose.data
 
+import com.jimd.misnotaspersonalescompose.Utils.MyResource
 import com.jimd.misnotaspersonalescompose.data.domain.NotasRepository
 import com.jimd.misnotaspersonalescompose.data.local.NotasDao
 import com.jimd.misnotaspersonalescompose.data.local.NotasEntity
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class NotasRepositoryImpl @Inject constructor(

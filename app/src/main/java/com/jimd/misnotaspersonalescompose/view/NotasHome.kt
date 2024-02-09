@@ -14,7 +14,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Add
 import androidx.compose.material.icons.outlined.Delete
-import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -31,25 +30,21 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
 import com.jimd.misnotaspersonalescompose.Utils.MyTopAppBar
-import com.jimd.misnotaspersonalescompose.Utils.NotasEvents
 import com.jimd.misnotaspersonalescompose.data.local.NotasEntity
 import com.jimd.misnotaspersonalescompose.navegation.NavegationManager
 
 @SuppressLint("StateFlowValueCalledInComposition")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun NotasHome(navController: NavController,viewModel: NotasHomeViewModel) {
+fun NotasHome(navController: NavController,viewModel: NotasHomeViewModel) { //
     Scaffold(
         topBar = { MyTopAppBar() },
         floatingActionButton = {
             FloatingActionButton(onClick = { navController.navigate(NavegationManager.add.route) }) {
                 Icon(Icons.Outlined.Add,contentDescription = null)
-            }
-        }, bottomBar = {
-            BottomAppBar {
-                Text(text = "BoTTOOOMMMM")
             }
         }
     ) {

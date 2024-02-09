@@ -16,6 +16,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.jimd.misnotaspersonalescompose.navegation.NavegationManager
+import com.jimd.misnotaspersonalescompose.navegation.mainNavegation
 import com.jimd.misnotaspersonalescompose.ui.theme.MisNotasPersonalesComposeTheme
 import com.jimd.misnotaspersonalescompose.view.NotasHome
 import com.jimd.misnotaspersonalescompose.view.NotasHomeViewModel
@@ -35,25 +36,25 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    val navegationControler = rememberNavController()
-                    NavHost(navController = navegationControler, startDestination = NavegationManager.main.route){
-                        composable(NavegationManager.main.route){ NotasHome(navegationControler,viewModel) }
+                    val navController = rememberNavController()
+                    //mainNavegation(navController = navegationControler)
+                    NavHost(navController = navController, startDestination = NavegationManager.main.route){
+                        composable(NavegationManager.main.route){ NotasHome(navController,viewModel) }
                         composable(NavegationManager.add.route){ NotasNews(
-                            navController = navegationControler,
-                            viewModel = viewModel, navegationBack = { navegationControler.popBackStack() }
+                            navController = navController,
+                            viewModel = viewModel, navegationBack = { navController.popBackStack() }
                         ) }
                         composable(NavegationManager.updated.route+"/{id}",
                             arguments = listOf(
                                 navArgument("id"){ type = NavType.StringType }
                             )){ navbackStack->
                             NotasUpdate(
-                                navegationControler =  navegationControler,
+                                navegationControler =  navController,
                                 viewModel =  viewModel,
                                 id = navbackStack.arguments?.getString("id").orEmpty(),
-                                navegationBack = { navegationControler.popBackStack() }
-                                ) }
+                                navegationBack = { navController.popBackStack() }
+                            ) }
                     }
-
 
                 }
             }
