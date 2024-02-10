@@ -30,16 +30,18 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
 import com.jimd.misnotaspersonalescompose.Utils.MyTopAppBar
 import com.jimd.misnotaspersonalescompose.data.local.NotasEntity
 import com.jimd.misnotaspersonalescompose.navegation.NavegationManager
+import dagger.hilt.android.lifecycle.HiltViewModel
 
 @SuppressLint("StateFlowValueCalledInComposition")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun NotasHome(navController: NavController,viewModel: NotasHomeViewModel) { //
+fun NotasHome(navController: NavController,viewModel: NotasHomeViewModel= hiltViewModel()) { //
     Scaffold(
         topBar = { MyTopAppBar() },
         floatingActionButton = {

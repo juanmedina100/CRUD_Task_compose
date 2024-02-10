@@ -24,6 +24,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.jimd.misnotaspersonalescompose.Utils.MyTopAppBarUpdate
 import com.jimd.misnotaspersonalescompose.Utils.NotasEvents
@@ -32,7 +33,7 @@ import com.jimd.misnotaspersonalescompose.data.local.NotasEntity
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun NotasUpdate(navegationControler: NavHostController, viewModel: NotasHomeViewModel,id:String,navegationBack:()->Unit) {
+fun NotasUpdate(navegationControler: NavHostController, viewModel: NotasHomeViewModel= hiltViewModel(), id:String, navegationBack:()->Unit) {
     val uriId = Uri.decode(id)
     LaunchedEffect(key1 = Unit){
         viewModel.getNotasForId(uriId.toString().toInt())

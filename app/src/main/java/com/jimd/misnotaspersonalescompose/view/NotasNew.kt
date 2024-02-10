@@ -24,6 +24,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.jimd.misnotaspersonalescompose.Utils.MyTopAppBarAdd
 import com.jimd.misnotaspersonalescompose.data.local.NotasEntity
@@ -31,7 +32,7 @@ import com.jimd.misnotaspersonalescompose.data.local.NotasEntity
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun NotasNews(navController: NavController,viewModel: NotasHomeViewModel,navegationBack:()->Unit) {
+fun NotasNews(navController: NavController, viewModel: NotasHomeViewModel= hiltViewModel(), navegationBack:()->Unit) {
     var titulo by rememberSaveable {
         mutableStateOf("")
     }
@@ -44,7 +45,9 @@ fun NotasNews(navController: NavController,viewModel: NotasHomeViewModel,navegat
         Box(modifier = Modifier
             .fillMaxSize()
             .padding(it)){
-            Column(modifier=Modifier.fillMaxWidth().padding(20.dp)) {
+            Column(modifier= Modifier
+                .fillMaxWidth()
+                .padding(20.dp)) {
                 Text(
                     text = "Agregar NOTAS",
                     modifier = Modifier

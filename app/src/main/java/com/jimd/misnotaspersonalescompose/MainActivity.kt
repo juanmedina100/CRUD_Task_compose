@@ -26,7 +26,6 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-    val viewModel:NotasHomeViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -37,25 +36,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     val navController = rememberNavController()
-                    //mainNavegation(navController = navegationControler)
-                    NavHost(navController = navController, startDestination = NavegationManager.main.route){
-                        composable(NavegationManager.main.route){ NotasHome(navController,viewModel) }
-                        composable(NavegationManager.add.route){ NotasNews(
-                            navController = navController,
-                            viewModel = viewModel, navegationBack = { navController.popBackStack() }
-                        ) }
-                        composable(NavegationManager.updated.route+"/{id}",
-                            arguments = listOf(
-                                navArgument("id"){ type = NavType.StringType }
-                            )){ navbackStack->
-                            NotasUpdate(
-                                navegationControler =  navController,
-                                viewModel =  viewModel,
-                                id = navbackStack.arguments?.getString("id").orEmpty(),
-                                navegationBack = { navController.popBackStack() }
-                            ) }
-                    }
-
+                    mainNavegation(navController = navController)
                 }
             }
         }
